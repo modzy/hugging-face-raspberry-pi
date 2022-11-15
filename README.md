@@ -29,7 +29,7 @@ This repository includes detailed instructions and the corresponding code for de
 Below is a quick overview of this README's contents:
 
 * [Environment Setup](#environment-setup): Set up your Python environment and remote device
-* [Hugging Face Model Containerization](#containerize-hugging-face-model): Converting a Hugging Face model into a portable, interoperable Docker container
+* [Hugging Face Model Containerization](#containerize-hugging-face-model): Convert a Hugging Face model into a portable, interoperable Docker container
 * [Run Model on Pi with Docker](#run-model-on-pi-with-docker--grpc): Leverage Docker and gRPC to download model to device and make API calls against it
 * [Run Model on Pi with Modzy](#run-model-on-pi-with-modzy-edge): Leverage Modzy Edge feature to deploy, serve, and run model with just a few lines of code
 
