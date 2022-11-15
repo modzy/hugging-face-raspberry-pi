@@ -47,7 +47,7 @@ git clone https://github.com/modzy/hugging-face-raspberry-pi.git
 
 Next, we will need to set up a Python environment to run the [Jupyter Notebook](./Hugging%20Face%20%26%20Raspberry%20Pi%20Tech%20Talk.ipynb) code and our example [Flask App](./flask-app/README.md).
 
-1. Install Python >= version 3.6
+1. Install Python version >= 3.6
 2. Create a virtual environment (venv, conda, or your virtual environment of choice)
 3. Activate your virtual environment, and install Jupyter Notebooks using the appropriate [install instructions](https://jupyter.org/install)
 4. At a minimum, install the following python libraries to be able to run the [Notebook](./Hugging%20Face%20%26%20Raspberry%20Pi%20Tech%20Talk.ipynb) referenced in the YouTube video recording.
