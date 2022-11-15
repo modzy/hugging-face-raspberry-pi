@@ -16,7 +16,6 @@
 ![GitHub](https://img.shields.io/github/license/modzy/hugging-face-raspberry-pi?logo=apache&style=flat)
 
 <br>
-<br>
 
 ***Follow along on YouTube: https://www.youtube.com/watch?v=2rJCGyHQ_zM***
 
