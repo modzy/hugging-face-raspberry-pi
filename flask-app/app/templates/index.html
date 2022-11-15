@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header p-3 pb-md-4 mx-auto ">
+  <h1 class="display-4 fw-normal">Learn more about Modzy</h1>
+  <p class="fs-5 text-muted">Modzy Edge makes it possible to rapidly deploy models to a single device or collection of edge
+    devices. Learn more about the Modzy platform and edge features to get started.</p>
+  <a href="https://docs.modzy.com" class="btn btn-primary btn-lg px-4">Modzy Documentation Site</a>
+</div>
+
+<hr class="col-3 col-md-2 mb-5">
+
+<div class="row g-5">
+  <div class="col-md-6">
+    <h2>Starter projects</h2>
+    <p>Ready to experiment beyond this Raspberry Pi example? Check out these example projects that you can quickly
+      replicate in your own GitHub repository.</p>
+    <ul class="icon-list">
+      <li><a href="https://docs.modzy.com/docs/modzy-in-a-flask-app-quickstart" rel="noopener" target="_blank">Generic
+          Flask App</a></li>
+      <li><a href="https://docs.modzy.com/docs/youtube-deepfake-detector" rel="noopener" target="_blank">YouTube
+          deepfake detection</a></li>
+      <li><a href="https://docs.modzy.com/docs/sentiment-sensing-slackbot" rel="noopener" target="_blank">Sentiment
+          Sensing Slackbot</a></li>
+      <li><a href="https://docs.modzy.com/docs/ocr-translate-and-summarize" rel="noopener" target="_blank">OCR &
+          Translate</a></li>
+    </ul>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Guides</h2>
+    <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
+    <ul class="icon-list">
+      <li><a href="https://docs.modzy.com/docs/edge">Getting Started with Modzy Edge</a></li>
+      <li><a href="https://docs.modzy.com/docs/getting-started">Your first 30 minutes with Modzy</a></li>
+      <li><a href="https://docs.modzy.com/docs/python">Using the Python SDK</a></li>
+      <li><a href="https://chassis.ml">Containerizing models with Chassis</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

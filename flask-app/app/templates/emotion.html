@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-3">
+	<div class="header p-3 pb-md-4 mx-auto text-center">
+		<img src="{{url_for('static', filename='images/hf.png')}}">
+		<img src="{{url_for('static', filename='images/rp.png')}}">
+		<h1 class="display-4 fw-normal">Emotion Text Classification</h1>
+		<p class="fs-5 text-muted">This Hugging Face model (TinyBERT) determines the emotion classification of the
+			user-specified text.</p>
+	</div>
+
+	<div class="p-3 pb-md-3 mx-auto col-8 text-center">
+		<form class="card p-2 " action="" method="post" novalidate>
+			{{ form.hidden_tag() }}
+			<div class="input-group">
+				<input type="text" class="form-control" name='input_text' id='input_text' placeholder="My Text">
+				<button type="submit" id='submit' name='submit' class="btn btn-secondary">Analyze</button>
+			</div>
+		</form>
+	</div>
+
+	{%if data and data[0]=='error' %}
+	<div class="text-danger p-3 pb-md-3 mx-auto col-8 text-center">
+		{{data[1]}}
+	</div>
+	{% elif data %}
+	<div class="p-3 pb-md-3 mx-auto col-8 text-center">
+		<div class="col-md-5 col-lg-12 order-md-last mt-3">
+			<h3>&ldquo;{{data['input-text']}}&rdquo;</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Class</th>
+						<th scope="col">Score</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for s in data['classPredictions'] %}
+					<tr
+						class="{% if s['class'] == 'joy' %}table-primary{% elif s['class'] == 'anger' %}table-danger{% elif s['class'] == 'sadness' %}table-dark{% elif s['class'] == 'fear' %}table-warning{% elif s['class'] == 'love' %}table-success{% elif s['class'] == 'surprise' %}table-info{%endif%}">
+						<th scope="row">{{s['class']}}</th>
+						<td>{{s['score']}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	{%endif%}
+</div>
+{% endblock %}
