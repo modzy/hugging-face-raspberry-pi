@@ -197,7 +197,7 @@ Replace `<user@ip-address-of-pi>` with the username and IP address of your devic
 
 ## Run Model on Pi with Modzy Edge
 
-The above section includes instructions for making API calls directly to a running Docker container. This section introduces an alternative that leverages [Modzy's](https://modzy.com) Edge capability to deploy, serve, and run models on remote devices. 
+The above section provides instructions for making API calls directly to a running Docker container. This section introduces an alternative that leverages [Modzy's](https://modzy.com) Edge capability to deploy, serve, and run models on remote devices. 
 
 *Note: To follow along in this section, you must have access to a Modzy account.*
 
