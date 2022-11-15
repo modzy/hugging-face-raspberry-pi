@@ -121,7 +121,9 @@ Chassis builds containers that supports gRPC APIs. This means there is a gRPC se
 
 This repository includes the auto-generated client code for Python in the `auto_generated/` directory, so you can run this directly in the [Notebook](./Hugging%20Face%20%26%20Raspberry%20Pi%20Tech%20Talk.ipynb). To run this code, you have two options:
 
-1. Run the code directly on your Raspberry Pi. To do so, you'll need to copy the `auto_generated/` folder onto your Pi and copy the following code into a `client.py` file (same directory level as `auto_generated/`):
+#### Run the code directly on your Raspberry Pi. 
+
+To do so, you'll need to copy the `auto_generated/` folder onto your Pi and copy the following code into a `client.py` file (same directory level as `auto_generated/`):
 
 ```python
 # import auto generated Python client code to make gRPC API calls to running container
@@ -186,7 +188,9 @@ Then, run this file:
 python client.py
 ```
 
-2. If you want to continue running the code in the notebook locally, all you will need to do is set up an SSH tunnel between your local machine and your Raspberry Pi. Since the model container is already running on port 45000 on the Pi, you can set up the tunnel with this command:
+#### Run Locally with SSH Tunnel
+
+If you want to continue running the code in the notebook locally, all you will need to do is set up an SSH tunnel between your local machine and your Raspberry Pi. Since the model container is already running on port 45000 on the Pi, you can set up the tunnel with this command:
 
 ```bash
 ssh -L 45000:localhost:45000 <user@ip-address-of-pi>
