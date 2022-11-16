@@ -5,7 +5,7 @@
 
 <div align="center">
 
-![Hugging Face Logo](./flask-app/app/static/images/hf.png)
+![Hugging Face Logo](./flask-app/app/static/images/hf-logo.png)
 ![Raspberry Pi Logo](./flask-app/app/static/images/rp.png)
 
 **This repository includes detailed instructions and the corresponding code for deploying, serving, and running a Hugging Face model on a Raspberry Pi.**
