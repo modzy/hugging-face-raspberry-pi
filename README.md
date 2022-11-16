@@ -58,12 +58,53 @@ pip install torch transformers[torch] numpy chassisml modzy-sdk grpcio~=1.50.0 p
 
 Now, simply open a Jupyter Notebook kernel and begin working with the code.
 
-### Raspberry Pi (remote)
+### Raspberry Pi Set-up
 
-In this section, we will take the steps to properly install the OS onto our Raspberry Pi and install Docker. These are the only two mandatory requirements to download and run our model. 
+In this section, we will take the steps to properly install an OS onto your Raspberry Pi and install Docker. These are the only two mandatory requirements to download and run our model. 
 
-1. If you have not already, install a Linux OS distribution on your Raspberry Pi.
-2. Next, install Docker following these [instructions](https://docs.docker.com/engine/install/debian/)
+#### Install Raspbian on your Raspberry Pi
+To image your Raspberry Pi from scratch, do the following:
+1. Download and install the Raspberry Pi Imager [here](https://www.raspberrypi.com/software/)
+2. Insert a microSD card into your comptuer then open up the Raspberry Pi Imager (16GB recommended)
+3. Click on "Choose OS" and select `Raspberry Pi OS Lite (64-bit)` (a port of Debian with no desktop that supports Raspberry Pi models 3, 4, and 400)
+4. Click on "Choose Storage" then select your microSD card
+5. Click on the ⚙️ icon then select the following checkboxes and fill in all necessary info
+    * ☑️ Enable SSH (and 🔘 Use password authentication)
+    * ☑️ Set username and password
+    * ☑️ Configure wireless LAN
+5. Click "Save" then click "Write"
+6. Eject the microSD card from your computer then slide it into your Pi's microSD card slot
+7. Power on your Raspberry Pi, then wait a few minutes
+8. SSH into your Pi
+
+```bash
+$ ssh pi@raspberrypi
+pi@raspberrypi's password:
+pi@raspberrypi:~ $
+```
+
+9. Finally, update your packages
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ reboot
+```
+
+#### Install Docker
+The easiest way to install Docker on a Raspberry Pi is to use a convenience shell script provided by the nice people at Docker. Full instructions can be found [here](https://docs.docker.com/engine/install/debian/)
+
+```bash
+$ curl -fsSL https://get.docker.com -o get-docker.sh
+$ sudo sh get-docker.sh
+```
+
+To make sure Docker is up and running, you can type the following:
+
+```bash
+$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
 
 *NOTE: While the following instructions are specific to setting up a Raspberry Pi, you may perform the equivalent steps on the edge or remote device of your choice.*
 
