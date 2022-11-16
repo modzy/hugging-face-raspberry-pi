@@ -3,8 +3,16 @@ from app import app
 from app.forms import *
 import time
 
-from modzy.edge.client import EdgeClient
-client = EdgeClient("localhost",55000)
+import json
+import logging
+from typing import Dict
+import grpc
+from app.auto_generated.model2_template.model_pb2 import InputItem, RunRequest, RunResponse, StatusRequest
+from app.auto_generated.model2_template.model_pb2_grpc import ModzyModelStub
+logging.basicConfig(level=logging.INFO)
+LOGGER = logging.getLogger(__name__)
+HOST = "localhost"
+PORT = 45000
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/emotion', methods=['GET', 'POST'])
@@ -25,8 +33,25 @@ def index():
 	return render_template('index.html')
 
 def tinybertclassifier(input_text):
-	job = client.submit_text('uxchm260wz', '1.0.0', {'input.txt': input_text})
-	time.sleep(1)
-	_ = client.block_until_complete(job, timeout=None)
-	results = client.get_results(job)
-	return (results['results']['job']['results.json']['data']['result'])
+    with grpc.insecure_channel(f"{HOST}:{PORT}") as grpc_channel:
+        grpc_client_stub = ModzyModelStub(grpc_channel)
+        try:
+            grpc_client_stub.Status(StatusRequest())  # Initialize the model
+        except Exception:
+            LOGGER.error(
+                f"It appears that the Model Server is unreachable. Did you ensure it is running on {HOST}:{PORT}?"
+            )
+            return    
+        
+        run_request = RunRequest(inputs=[create_input({"input.txt": input_text.encode()})])
+        single_response = grpc_client_stub.Run(run_request) 
+        json_output = json.loads(single_response.outputs[0].output["results.json"].decode())   
+        output = json_output['data']['result']
+        
+    return output
+
+def create_input(input_text: Dict[str, bytes]) -> InputItem:
+	input_item = InputItem()
+	for input_filename, input_contents in input_text.items():
+		input_item.input[input_filename] = input_contents
+	return input_item

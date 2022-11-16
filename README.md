@@ -62,9 +62,8 @@ Now, simply open a Jupyter Notebook kernel and begin working with the code.
 
 In this section, we will take the steps to properly install the OS onto our Raspberry Pi and install Docker. These are the only two mandatory requirements to download and run our model. 
 
-1. If you have not already, install a Linux OS distribution on your Raspberry Pi. TODO: Update 
+1. If you have not already, install a Linux OS distribution on your Raspberry Pi.
 2. Next, install Docker following these [instructions](https://docs.docker.com/engine/install/debian/)
-3. Confirm the installation by running `docker ps` 
 
 *NOTE: While the following instructions are specific to setting up a Raspberry Pi, you may perform the equivalent steps on the edge or remote device of your choice.*
 
@@ -198,27 +197,14 @@ ssh -L 45000:localhost:45000 <user@ip-address-of-pi>
 
 Replace `<user@ip-address-of-pi>` with the username and IP address of your device. In doing so, your SSH tunnel will connect and allow you to execute the gRPC client code from within your notebook.
 
+#### Build a custom Flask App
+
+Let's take this client code one step further with an example [Flask App](./flask-app/app.py). Follow these [instructions](./flask-app/README.md) to see how we embed a few lines of gRPC client code into a Flask application we can access in our browser and spin it up yourself! 
 
 ## Run Model on Pi with Modzy Edge
 
-The above section provides instructions for making API calls directly to a running Docker container. This section introduces an alternative that leverages [Modzy's](https://modzy.com) Edge capability to deploy, serve, and run models on remote devices. 
+In this section, we introduce an alternative that streamlines the first approach through [Modzy's](https://modzy.com) Edge capability, allowing you to scale this model to as many devices as you need, serve and consume them through a standard API, and fully manage the model in production, regardless of where the model is running.
 
-*Note: To follow along in this section, you must have access to a Modzy account.*
-
-First, you must complete a few quick prerequisite steps in Modzy:
-1. [Deploy model to Modzy](https://docs.modzy.com/docs/import-container)
-2. [Create a device group](https://docs.modzy.com/docs/create-device-group)
-3. [Generate a device token](https://docs.modzy.com/docs/how-to-generate-a-device-token)
-4. [Deploy model to Pi](https://docs.modzy.com/docs/connect-edge-device)
-
-After completing these first four steps successfully, you will have downloaded the Modzy Edge binary and the model container to your Pi. Next, run the binary with a command that looks like this (copy-pastable code available directly in Modzy instance):
-
-```bash
-./modzy-core --server --modzy.url https://<your-modzy-url> --modzy.token DEVICE_REGISTRATION_TOKEN
-```
-
-In doing so, your model will be served via Modzy Edge's model server on port 55000. Just like before, you can set up an SSH tunnel to run Modzy APIs locally in your notebook or run the API code directly on the Pi.
-
-To see some code examples, check out the bottom section of the [Hugging Face & Raspberry Pi](./Hugging%20Face%20%26%20Raspberry%20Pi%20Tech%20Talk.ipynb) notebook, or spin up your own Flask app by following these [instructions](./flask-app/README.md).
+For the full tutorial and instructions, visit https://docs.modzy.com.
 
 

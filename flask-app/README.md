@@ -1,13 +1,13 @@
 # Hugging Face & Raspbery Pi Flask App
 
-This Flask app is a fork from the [Modzy Flask Template](https://github.com/modzy/modzy_flask_template) repository. The code to run this app *as is* requires connection to Modzy Edge running on `localhost:55000`, but you can modify the code to run inferences directly against a Docker container if you wish. 
+This example Flask app provides an interface for any user to submit text to a field in a browser and see the model predictions rendered in a table. The code to run this app *as is* requires connection to a running, OMI-compliant Docker container on `localhost:45000`.
 
 ## Setting up SSH Tunnel
 
-If you followed these [instructions](../README.md#run-model-on-pi-with-modzy-edge) for running Modzy Edge on your Raspberry Pi, all you have to do is set up a simple SSH tunnel to connect your local server to the port serving Modzy Edge on the Pi.
+If you followed these [instructions](../README.md#run-model-on-pi-with-docker--grpc) for running a Docker container on your Raspberry Pi, all you have to do is set up a simple SSH tunnel to connect your local server to the port serving the container on the Pi.
 
 ```bash
-ssh -L 55000:localhost:55000 <user@ip-address-of-pi>
+ssh -L 45000:localhost:45000 <user@ip-address-of-pi>
 ```
 
 Replace `<user@ip-address-of-pi>` with the username and IP address of your device. In doing so, your SSH tunnel will connect. Now, follow the below instructions to spin up your Flask App with a connection to your edge device. 
@@ -26,14 +26,11 @@ The following instructions will generate a simple Python Flask web application t
     - Activate environment `source venv/bin/activate` (Linux & MacOS) or `.\venv\Scripts\activate` (Windows)
 - Install Requirements & Set Environment Variables
     - Install Python packages by running `pip install -r requirements.txt`
-    - Retrieve your Modzy API key (https://docs.modzy.com/docs/getting-started#key-download-your-api-key)
-    - Set environment variables: `export API_KEY=<your-api-key>` (Linux/MacOS) or `$env:API_KEY="<your-api-key>"` (Windows)
     - Now start flask with the command `flask run`
 - Open your new Web server!
     - Using a web browser of your choice, navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
     - Type any text into the 'My Text' box and hit Analyze.
     
-
 ## Table of contents
 
 - [Flask Application code](app.py)
