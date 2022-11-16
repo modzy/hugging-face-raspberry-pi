@@ -43,7 +43,7 @@ Start by cloning this project into your directory:
 git clone https://github.com/modzy/hugging-face-raspberry-pi.git
 ```
 
-### Python Environment (local)
+### Python Environment Set-up
 
 Next, we will need to set up a Python environment to run the [Jupyter Notebook](./Hugging%20Face%20%26%20Raspberry%20Pi%20Tech%20Talk.ipynb) code and our example [Flask App](./flask-app/README.md).
 
