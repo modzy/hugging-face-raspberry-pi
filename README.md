@@ -43,7 +43,7 @@ Start by cloning this project into your directory:
 git clone https://github.com/modzy/hugging-face-raspberry-pi.git
 ```
 
-### Python Environment Set-up
+### Python Environment Setup
 
 Next, we will need to set up a Python environment to run the [Jupyter Notebook](./Hugging%20Face%20%26%20Raspberry%20Pi%20Tech%20Talk.ipynb) code and our example [Flask App](./flask-app/README.md).
 
@@ -58,7 +58,7 @@ pip install torch transformers[torch] numpy chassisml modzy-sdk grpcio~=1.50.0 p
 
 Now, simply open a Jupyter Notebook kernel and begin working with the code.
 
-### Raspberry Pi Set-up
+### Raspberry Pi Setup
 
 In this section, we will take the steps to properly install an OS onto your Raspberry Pi and install Docker. These are the only two mandatory requirements to download and run our model. 
 
