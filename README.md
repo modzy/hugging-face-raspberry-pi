@@ -108,7 +108,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 *NOTE: While the following instructions are specific to setting up a Raspberry Pi, you may perform the equivalent steps on the edge or remote device of your choice.*
 
-## Containerize Hugging Face Model
+## Containerize Hugging Face Model :hugs:
 
 *Note: If you would like follow along in this section of the notebook, you must first create a free account on [Dockerhub](https://hub.docker.com/signup). If, however, you wish to skip this portion, you can use this pre-built [Docker container](https://hub.docker.com/repository/docker/modzy/tinybert-arm).*
 
@@ -117,16 +117,16 @@ Once you have wrapped up setting up your local Python environment and remote dev
 We start by downloading this [TinyBERT model](https://huggingface.co/gokuls/BERT-tiny-emotion-intent?text=I+like+you.+I+love+you) from Hugging Face via the [Transformers](https://huggingface.co/docs/transformers/main/en/index) library. If instead you choose to use a different model, make sure to modify the included code as necessary.
 
 Next, we will leverage [Chassis](https://chassis.ml) to automatically convert this Hugging Face model into a portable and interoperable Docker container. To learn more about Chassis, these resources and guides are a great place to start:
-* [Chassis Overview](https://chassis.ml/conceptual-guides/overview/)
-* [Build and Publish a Scikit-learn model](https://chassis.ml/tutorials/ds-connect/)
-* [Install Chassis with a private docker registry](https://chassis.ml/how-to-guides/private-registry/)
-* [Frequently Asked Questions](https://chassis.ml/common-errors/)
-* [gRPC Overview](https://chassis.ml/conceptual-guides/grpc/)
-* [Full API and SDK Reference](https://chassis.ml/service-reference/)
+* ✔️[Chassis Overview](https://chassis.ml/conceptual-guides/overview/)
+* 🚧[Build and Publish a Scikit-learn model](https://chassis.ml/tutorials/ds-connect/)
+* 🔌[Install Chassis with a private docker registry](https://chassis.ml/how-to-guides/private-registry/)
+* ❓[Frequently Asked Questions](https://chassis.ml/common-errors/)
+* 📚[gRPC Overview](https://chassis.ml/conceptual-guides/grpc/)
+* 📑[Full API and SDK Reference](https://chassis.ml/service-reference/)
 
 After following this portion of the notebook, you will have built and published a Hugging Face model container to your Dockerhub account.
 
-## Run Model on Pi with Docker & GRPC
+## Run Model on Pi with Docker & GRPC 
 
 Now that we have built a container image with our Hugging Face model compiled for an ARM chip architecture, we can now download this container to our Raspberry Pi. The first method we will use to do so will use Docker directly. Open a terminal on your Raspberry Pi and run the following command to download the container:
 
