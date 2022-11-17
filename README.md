@@ -17,7 +17,7 @@
 
 <br>
 
-***Follow along on YouTube: https://www.youtube.com/watch?v=2rJCGyHQ_zM***
+:tv: ***Follow along on YouTube: https://www.youtube.com/watch?v=2rJCGyHQ_zM***
 
 </div>
 
