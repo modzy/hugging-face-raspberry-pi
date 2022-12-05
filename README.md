@@ -1,14 +1,14 @@
 
 # Running Hugging Face Models on a Raspberry Pi
 
-![Modzy Logo](./images/banner.png)
+![Modzy Logo](./images/banner-docker.png)
 
 <div align="center">
 
 ![Hugging Face Logo](./flask-app/app/static/images/hf-logo.png)
 ![Raspberry Pi Logo](./flask-app/app/static/images/rp.png)
 
-**This repository includes detailed instructions and the corresponding code for deploying, serving, and running a Hugging Face model on a Raspberry Pi.**
+**This repository includes detailed instructions and the corresponding code for deploying, serving, and running a Hugging Face model on a Raspberry Pi with Docker.**
 
 ![GitHub contributors](https://img.shields.io/github/contributors/modzy/hugging-face-raspberry-pi?logo=GitHub&style=flat)
 ![GitHub last commit](https://img.shields.io/github/last-commit/modzy/hugging-face-raspberry-pi?logo=GitHub&style=flat)
